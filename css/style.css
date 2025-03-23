@@ -1,0 +1,474 @@
+/* Reset CSS và thiết lập chung */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Press Start 2P", cursive, Arial, sans-serif;
+  background-color: #0a0a0a;
+  color: #f0f0f0;
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+/* Thiết lập container chính */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 10px;
+  background-color: #1a1a1a;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Thanh tài nguyên */
+.resource-panel {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 10px;
+  background-color: #2a2a2a;
+  border-bottom: 2px solid #444;
+  border-radius: 5px 5px 0 0;
+}
+
+.resource {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resource-icon {
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+
+.wood-icon {
+  background-image: url("../img/wood-icon.png");
+  /* Tạm thời dùng màu thay thế nếu chưa có hình */
+  background-color: #8b4513;
+}
+
+.stone-icon {
+  background-image: url("../img/stone-icon.png");
+  /* Tạm thời dùng màu thay thế nếu chưa có hình */
+  background-color: #708090;
+}
+
+.food-icon {
+  background-image: url("../img/food-icon.png");
+  /* Tạm thời dùng màu thay thế nếu chưa có hình */
+  background-color: #228b22;
+}
+
+.gold-icon {
+  background-image: url("../img/gold-icon.png");
+  /* Tạm thời dùng màu thay thế nếu chưa có hình */
+  background-color: #ffd700;
+}
+
+.resource-count {
+  font-size: 14px;
+}
+
+/* Khu vực chính */
+.game-area {
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+/* Panel chung */
+.panel {
+  background-color: #2a2a2a;
+  border: 2px solid #444;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.panel h2 {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #444;
+  padding-bottom: 5px;
+}
+
+/* Panel nhân vật */
+.character-panel {
+  order: 1;
+  overflow-y: auto;
+}
+
+.characters-list {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.hire-button {
+  background-color: #4a6c2f;
+  color: white;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  font-family: "Press Start 2P", cursive;
+  font-size: 12px;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+.hire-button:hover {
+  background-color: #5a8c3f;
+}
+
+/* Bản đồ khu định cư */
+.settlement-map {
+  flex: 1;
+  background-color: #3a3a3a;
+  border: 2px solid #444;
+  border-radius: 5px;
+  position: relative;
+  order: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  min-height: 500px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  height: 100%;
+  gap: 1px;
+  background-color: #2a2a2a;
+}
+
+/* Panel xây dựng */
+.building-panel {
+  order: 3;
+  overflow-y: auto;
+}
+
+.building-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.building-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #3a3a3a;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.building-option:hover {
+  background-color: #4a4a4a;
+}
+
+.building-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+
+.house-icon {
+  background-image: url("../img/house-icon.png");
+  /* Tạm thời dùng màu thay thế nếu chưa có hình */
+  background-color: #a0522d;
+}
+
+.workshop-icon {
+  background-image: url("../img/workshop-icon.png");
+  /* Tạm thời dùng màu thay thế nếu chưa có hình */
+  background-color: #696969;
+}
+
+.guardpost-icon {
+  background-image: url("../img/guardpost-icon.png");
+  /* Tạm thời dùng màu thay thế nếu chưa có hình */
+  background-color: #b22222;
+}
+
+.farm-icon {
+  background-image: url("../img/farm-icon.png");
+  /* Tạm thời dùng màu thay thế nếu chưa có hình */
+  background-color: #daa520;
+}
+
+.building-option span {
+  font-size: 10px;
+  text-align: center;
+}
+
+/* Khu vực thông báo */
+.notification-panel {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background-color: #2a2a2a;
+  border-top: 2px solid #444;
+  border-radius: 0 0 5px 5px;
+  height: 150px;
+}
+
+.notifications {
+  flex: 2;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #3a3a3a;
+  border-radius: 5px;
+}
+
+.notification {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.quest-log {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #3a3a3a;
+  border-radius: 5px;
+}
+
+.quest-log h3 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.quest-log ul {
+  list-style-type: none;
+}
+
+.quest-log li {
+  font-size: 12px;
+  padding: 5px 0;
+  border-bottom: 1px solid #444;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background-color: #2a2a2a;
+  margin: 10% auto;
+  padding: 20px;
+  border: 2px solid #444;
+  border-radius: 5px;
+  width: 60%;
+  max-width: 500px;
+  position: relative;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: white;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: "Press Start 2P", cursive;
+  font-size: 12px;
+}
+
+#modal-action-button {
+  background-color: #4a6c2f;
+  color: white;
+}
+
+#modal-action-button:hover {
+  background-color: #5a8c3f;
+}
+
+#modal-cancel-button {
+  background-color: #6c2f2f;
+  color: white;
+}
+
+#modal-cancel-button:hover {
+  background-color: #8c3f3f;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .game-area {
+    flex-direction: column;
+  }
+
+  .panel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .character-panel,
+  .building-panel {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .characters-list {
+    max-height: 120px;
+  }
+
+  .settlement-map {
+    min-height: 300px;
+    max-height: 50vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .resource-panel {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .resource {
+    min-width: 70px;
+  }
+
+  .notification-panel {
+    flex-direction: column;
+    height: auto;
+    max-height: 200px;
+  }
+
+  .notifications,
+  .quest-log {
+    max-height: 100px;
+  }
+}
+
+/* Màn hình bắt đầu */
+.start-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),
+    url("../assets/sprites/terrain/grass.png");
+  background-size: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.start-content {
+  background-color: rgba(46, 32, 21, 0.95);
+  border: 4px solid #8b6838;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 600px;
+  text-align: center;
+  color: #e8dcc1;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.start-content h1 {
+  font-family: "Press Start 2P", cursive;
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #ffd700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.start-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.start-content button {
+  background-color: #8b6838;
+  color: #fff;
+  font-family: "Press Start 2P", cursive;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.start-content button:hover {
+  background-color: #a17d45;
+  transform: scale(1.05);
+}
+
+.start-content button:active {
+  transform: scale(0.98);
+}
+
+.instructions {
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.instructions h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #ffd700;
+}
+
+.instructions ul {
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+
+.instructions li {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}

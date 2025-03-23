@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wilderness Haven - Game Sinh Tồn</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/game.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.5.2/browser/pixi.min.js"></script>
+  </head>
+  <body>
+    <div class="game-container">
+      <!-- Phần header với thông tin tài nguyên -->
+      <header class="resource-panel">
+        <div class="resource" id="wood">
+          <div class="resource-icon wood-icon"></div>
+          <span class="resource-count">0</span>
+        </div>
+        <div class="resource" id="stone">
+          <div class="resource-icon stone-icon"></div>
+          <span class="resource-count">0</span>
+        </div>
+        <div class="resource" id="food">
+          <div class="resource-icon food-icon"></div>
+          <span class="resource-count">0</span>
+        </div>
+        <div class="resource" id="gold">
+          <div class="resource-icon gold-icon"></div>
+          <span class="resource-count">0</span>
+        </div>
+      </header>
+
+      <!-- Khu vực chính của game -->
+      <main class="game-area">
+        <!-- Khu vực quản lý nhân vật -->
+        <div class="character-panel panel">
+          <h2>Nhân vật</h2>
+          <div class="characters-list" id="characters-list">
+            <!-- Các nhân vật sẽ được thêm vào đây thông qua JavaScript -->
+          </div>
+          <div class="character-actions">
+            <button class="hire-button" id="hire-button">Thuê nhân vật</button>
+            <button class="hunt-button" id="hunt-button">Đi săn</button>
+          </div>
+        </div>
+
+        <!-- Khu vực bản đồ chính -->
+        <div class="settlement-map">
+          <div class="grid-container" id="grid-container">
+            <!-- Grid cho việc xây dựng -->
+          </div>
+        </div>
+
+        <!-- Khu vực xây dựng và quản lý -->
+        <div class="building-panel panel">
+          <h2>Xây dựng</h2>
+          <div class="building-options">
+            <div class="building-option" data-building="house">
+              <div class="building-icon house-icon"></div>
+              <span>Nhà ở</span>
+            </div>
+            <div class="building-option" data-building="workshop">
+              <div class="building-icon workshop-icon"></div>
+              <span>Xưởng chế tạo</span>
+            </div>
+            <div class="building-option" data-building="guardpost">
+              <div class="building-icon guardpost-icon"></div>
+              <span>Trạm canh gác</span>
+            </div>
+            <div class="building-option" data-building="farm">
+              <div class="building-icon farm-icon"></div>
+              <span>Nông trại</span>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Khu vực thông báo và nhiệm vụ -->
+      <footer class="notification-panel">
+        <div class="notifications" id="notifications">
+          <p class="notification">
+            Chào mừng đến với Wilderness Haven! Hãy bắt đầu xây dựng khu định cư
+            của bạn.
+          </p>
+        </div>
+        <div class="quest-log" id="quest-log">
+          <h3>Nhiệm vụ</h3>
+          <ul>
+            <li>Xây dựng nhà ở đầu tiên</li>
+            <li>Thu thập 10 gỗ</li>
+            <li>Thuê nhân vật đầu tiên</li>
+            <li>Gửi nhân vật đi săn</li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Modal thông tin công trình -->
+    <div id="building-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2 id="modal-title">Thông Tin Công Trình</h2>
+        <div id="modal-content"></div>
+        <div class="modal-buttons">
+          <button id="modal-action-button">Nâng Cấp</button>
+          <button id="modal-cancel-button">Đóng</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal khu săn bắn -->
+    <div id="hunting-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Khu Săn Bắn</h2>
+
+        <h3>Quái Vật Phát Hiện</h3>
+        <div id="monster-list" class="monster-list"></div>
+
+        <h3>Nhóm Săn Bắn</h3>
+        <div id="hunting-groups" class="hunting-groups"></div>
+
+        <div class="modal-buttons">
+          <button id="hunt-button">Đi Săn</button>
+          <button id="hunting-close-button">Đóng</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sprite/Canvas container cho PixiJS -->
+    <div id="pixi-container" style="display: none"></div>
+
+    <!-- Thêm script quản lý tài nguyên trước script game -->
+    <script src="js/assets.js"></script>
+    <script src="js/game.js"></script>
+  </body>
+</html>
